@@ -8,7 +8,7 @@ public class LucazService {
         LucazSequence lucazSequence = new LucazSequence();
         port(getPort());
         staticFileLocation("/");
-        get("/index", (req, res) -> {
+        get("/lucazsequence", (req, res) -> {
             int value = Integer.parseInt(req.queryParams("value"));
             String sequence = lucazSequence.calculateSequence(value);
             String response = 	"{\n" +

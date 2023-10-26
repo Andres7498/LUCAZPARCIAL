@@ -1,20 +1,28 @@
 package com.example;
-
 public class LucazSequence {
 
-    public String calculateSequence(int value){
-        String result = "";
-        result += value+"->";
-        while (value >= 2) {
-            if (value  == 0) {
-                value = 2;
-            }else if (value == 1) {
-                value = 1;
-            } else  {
-              value = (value-1) + (value - 2); 
-            } 
+    public static String calculateSequence(int n) {
+        int a = 2;
+        int b = 1;
+      
+        StringBuilder lucasString = new StringBuilder();
+      
+        lucasString.append(a);
+        lucasString.append(", ");
+        lucasString.append(b);
+      
+        for (int i = 2; i <= n; i++) {
+          int lucasTerm = a + b;
+      
+          lucasString.append(lucasTerm);
+          lucasString.append(", ");
+      
+          a = b;
+          b = lucasTerm;
         }
-
-        return result;
+      
+        lucasString.delete(lucasString.length() - 2, lucasString.length());
+      
+        return lucasString.toString();
+      }
     }
-}
